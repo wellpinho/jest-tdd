@@ -1,0 +1,26 @@
+{
+  "name": "jest-tdd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/wellpinho/jest-tdd.git",
+  "author": "wellpinho <wellpinho@outlook.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^27.5.1",
+    "@types/node": "^17.0.35",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "eslint": "^8.16.0",
+    "jest": "^28.1.0",
+    "ts-jest": "^28.0.2",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^4.0.0",
+    "typescript": "^4.6.4"
+  },
+  "scripts": {
+    "test": "jest",
+    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
+    "lint": "eslint . --ext .ts",
+    "lint-fix": "eslint . --ext .ts --fix"
+  }
+}
