@@ -1,26 +1,38 @@
 {
-  "name": "jest-tdd",
+  "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/wellpinho/jest-tdd.git",
-  "author": "wellpinho <wellpinho@outlook.com>",
+  "main": "src/server.js",
   "license": "MIT",
-  "devDependencies": {
-    "@types/jest": "^27.5.1",
-    "@types/node": "^17.0.35",
-    "@typescript-eslint/eslint-plugin": "^5.25.0",
-    "@typescript-eslint/parser": "^5.25.0",
-    "eslint": "^8.16.0",
-    "jest": "^28.1.0",
-    "ts-jest": "^28.0.2",
-    "ts-node-dev": "^1.1.8",
-    "tsconfig-paths": "^4.0.0",
-    "typescript": "^4.6.4"
-  },
   "scripts": {
     "test": "jest",
-    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
-    "lint": "eslint . --ext .ts",
-    "lint-fix": "eslint . --ext .ts --fix"
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "dev": "nodemon src/server.js",
+    "start": "node dist/server.js"
+  },
+  "nodemonConfig": {
+    "execMap": {
+      "js": "node -r sucrase/register"
+    }
+  },
+  "jest": {
+    "transform": {
+      ".(js|jsx|ts|tsx)": "@sucrase/jest-plugin"
+    }
+  },
+  "dependencies": {
+    "@types/jest": "^25.2.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "uuidv4": "^6.0.7"
+  },
+  "devDependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "jest": "^25.2.6",
+    "nodemon": "^2.0.2",
+    "sucrase": "^3.13.0",
+    "supertest": "^4.0.2"
   }
 }
